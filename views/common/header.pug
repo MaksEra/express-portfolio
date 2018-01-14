@@ -1,0 +1,37 @@
+header(class=`header ${header_modif}`)
+    svg(class="header__triangle" width="100%")
+        use(xlink:href=("img/icons/sprite.svg") +"#bg")
+    .container.header__container
+        //- svg для фона
+        +socialListMixin('header__socials', [['vk','https://vk.com/maks_era'],['github','https://github.com/MaksEra'],['in','#']])
+        block headerSvg
+
+        block person-card
+            div(class="header__avatar person-card") 
+                .person-card__top
+                    .person-card__pic
+                        img(class='person-card__img' src=("img/content/avatar.jpg"))
+                .person-card__bottom
+                    .person-card__name-text Блог
+                        +svgTemp("person-card__svg-blog", 'blog_header')
+                    .person-card__text-amplua.
+                        Статьи, которые я написал
+.hamburger-menu
+    .hamburger-menu-toggle#ham-toggle
+        .one
+        .two
+        .three
+    nav.hamburger-menu__nav
+        ul(role="navigation").nav__list.hidden
+            li.nav__list-item
+                a(href="my-works" class="nav__link")
+                    span.nav__link-text Мои работы
+            li.nav__list-item
+                a(href="blog" class="nav__link")
+                    span.nav__link-text Блог
+            li.nav__list-item
+                a(href="about" class="nav__link")
+                    span.nav__link-text Обо мне
+            li.nav__list-item
+                a(href="/" class="nav__link")
+                    span.nav__link-text Авторизация

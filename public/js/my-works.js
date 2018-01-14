@@ -1,0 +1,2 @@
+webpackJsonp([2],{1:function(n,t,o){"use strict";(function(n){n(function(){n("#ham-toggle").on("click",function(){n(this).toggleClass("on"),n(".hamburger-menu").toggleClass("on"),n(".nav__list").toggleClass("hidden")})})}).call(t,o(0))},15:function(n,t,o){"use strict";function e(n){return n&&n.__esModule?n:{default:n}}e(o(2)),e(o(1))}},[15]);
+//# sourceMappingURL=my-works.js.map

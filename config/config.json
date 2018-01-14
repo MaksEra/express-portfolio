@@ -1,0 +1,21 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": "27017",
+    "name": "portfolioAPI",
+    "user": "",
+    "password": ""
+  },
+  "mail": {
+    "subject": "Сообщение с сайта-портфолио",
+    "smtp": {
+      "host": "smtp.gmail.com",
+      "port": 465,
+      "secure": true,
+      "auth": {
+        "user": "maks9306@gmail.com",
+        "pass": "a4a1ff8a"
+      }
+    }
+  }
+}
