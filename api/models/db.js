@@ -4,7 +4,7 @@ const config = require('../../config/config');
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect(`mongodb://${config.db.user}:${config.db.password}@${config.db.host}:${config.db.port}/${config.db.name}`, {
+  .connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {
     useMongoClient: true
   })
   .catch(e => {
@@ -13,11 +13,7 @@ mongoose
   });
 
 mongoose.connection.on('connected', function() {
-  console.log(
-    `Mongoose default connection open mongodb://${config.db.host}:${
-      config.db.port
-    }/${config.db.name}`
-  );
+  console.log(`Mongoose default connection open mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
 });
 
 // If the connection throws an error

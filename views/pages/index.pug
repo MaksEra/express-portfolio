@@ -27,7 +27,7 @@ block content
                         a(href='my-works').button.button--welcome.welcome__works Мои работы
                         a(href='about').button.button--welcome.welcome__about Обо мне
                         a(href='blog').button.button--welcome.welcome__blog Блог
-            
+
             .flipper__authorization.authorization
                 h1.authorization__title.title--underlined-white Авторизуйтесь
                 form(action="/login" method="POST")
@@ -41,7 +41,7 @@ block content
                         label.authorization__label
                             svg.authorization__input-svg
                                 use(xlink:href=(`img/icons/sprite.svg`)+"#password")
-                            input(type="text" name='user_login' placeholder='Пароль' class="authorization__input")
+                            input(type="text" name='user_password' placeholder='Пароль' class="authorization__input")
                         <label class="authorization__label-isHuman">
                             <input type="checkbox" name="user_isHuman" class="authorization__input authorization__input--checkbox" value='yes'>
                             <div class="authorization__checkbox-fake"></div>
@@ -50,18 +50,18 @@ block content
                         h5.authorization__title-isHuman Вы точно не робот?
                         <div class="authorization__row">
                             <label class="authorization__label-radio authorization__label-radio--yes">
-                                <input name="user_isntRobot" type="radio" class="authorization__input  authorization__input--radio" value='yes' >
+                                <input name="user_isntRobot" type="radio" class="authorization__input  authorization__input--radio" value='yes'>
                                 <div class="authorization__radio-fake"></div>
                                 <div class="authorization__input-text">Да</div>
                             </label>
                             <label class="authorization__label-radio authorization__label-radio--no">
-                                <input name="user_isntRobot" type="radio" class="authorization__input authorization__input--radio"  value='card' checked>
+                                <input name="user_isntRobot2" type="radio" class="authorization__input authorization__input--radio"  value='card'>
                                 <div class="authorization__radio-fake"></div>
                                 <div class="authorization__input-text">Не уверен</div>
                             </label>
                         </div>
                         <div class="authorization__row">
-                            a(href='#').button.button--authorization.authorization__to-main#auth-on-main На главную 
+                            a(href='#').button.button--authorization.authorization__to-main#auth-on-main На главную
                             <button type="submit" class="button button--authorization authorization__submit ">Войти</button>
                         </div>
     .welcome-copyright &copy; Максим Егоров | создано с любовью в LoftSchool | 2017

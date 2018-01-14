@@ -1,4 +1,4 @@
-/*'use strict';
+'use strict';
 
 const mongoose = require('mongoose'),
   Schema = mongoose.Schema,
@@ -17,4 +17,23 @@ const mongoose = require('mongoose'),
   });
 
 //просим mongoose сохранить модель для ее дальнейшего использования
-mongoose.model('skills', SkillsSchema);*/
+mongoose.model('skills', SkillsSchema);
+
+
+// db
+//   skills
+//     {
+//       name: 'Alex',
+//       percents: 20,
+//       type: 2
+//     },
+//     {
+//       name: 'Alex',
+//       percents: 20,
+//       type: 2
+//     },
+//     {
+//       name: 'Alex',
+//       percents: 20,
+//       type: 2
+//     }

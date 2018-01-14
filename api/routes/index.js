@@ -1,23 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const isAdmin = (req, res, next) => {
-  // если в сессии текущего пользователя есть пометка о том, что он является
-  // администратором
-  if (req.session.isAdmin) {
-    //то всё хорошо :)
-    return next();
-  }
-  //если нет, то перебросить пользователя на главную страницу сайта
-  res.redirect('/');
-};
-
 const ctrlBlog = require('../controllers/blog');
-const ctrlUser = require('../controllers/user')
+const ctrlUser = require('../controllers/user');
+const ctrlSkills = require('../controllers/skills');
 
 router.post('/user', ctrlUser.isAuth);
 
-router.get('/blog', isAdmin, ctrlBlog.getArticles);
+router.get('/blog', ctrlBlog.getArticles);
+
+router.get('/skills', ctrlSkills.getSkills)
 
 // router.post('/blog', ctrlBlog.createArticle);
 // router.put('/blog/:id', ctrlBlog.editArticle);

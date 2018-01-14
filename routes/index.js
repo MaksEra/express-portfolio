@@ -6,18 +6,8 @@ const ctrlLogin = require('../controllers/login');
 const ctrlBlog = require('../controllers/blog')
 const ctrlWorks = require('../controllers/works')
 const ctrlAbout = require('../controllers/about')
-const ctrlAdmin = require('../controllers/admin');
 
-const isAdmin = (req, res, next) => {
-  // если в сессии текущего пользователя есть пометка о том, что он является
-  // администратором
-  if (req.session.isAdmin) {
-    //то всё хорошо :)
-    return next();
-  }
-  //если нет, то перебросить пользователя на главную страницу сайта
-  res.redirect('/');
-};
+const User = require('../api/controllers/user');
 
 /* GET home page. */
 router.get('/', ctrlHome.getIndex);
@@ -32,6 +22,20 @@ router.post('/contact', ctrlWorks.sendEmail);
 
 router.get('/about', ctrlAbout.getAboutPage);
 
-router.get('/admin', isAdmin, ctrlAdmin.getAdminPage);
+router.post('/login', (req, res) => {
+    User.isAuth(req, res);
+    // if (req.body.user_login === 'admin') {
+    //     if (User.validPassword(req.body.user_password)) {
+    //         req.session.isAdmin = true;
+    //         res.redirect('/admin');
+    //     }
+    //     else {
+    //         res.redirect('/');
+    //     }
+    // }
+    // else {
+    //     res.redirect('/');
+    // }
+});
 
 module.exports = router;

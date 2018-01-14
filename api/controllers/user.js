@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
+
 module.exports.isAuth = function (req, res) {
     //получаем модель пользователя и шифруем введенный пароль
     const Model = mongoose.model('user');
   //пытаемся найти пользователя с указанным логином
   Model
-    .findOne({login: req.body.login})
+    .findOne({login: req.body.user_login})
     .then(user => {
         //если такой пользователь не найден или пароль не верен - сообщаем об этом
         if (!user) {
@@ -12,14 +13,18 @@ module.exports.isAuth = function (req, res) {
         }
         if (!user.validPassword(req.body.password)) {
           return res.status(400).json({status: 'err', message: 'Пароль введен неверно!'});
-        } else {
+        }
+        else {
+          req.session.isAdmin = true;
 
           // запрос
-          res.status(200).json({status: 'ok', message: 'Авторизация успешна!'});
+          //res.redirect('/admin');
+          res.redirect('http://localhost:8080/');
         }
-      }).catch(e => {
-        res.status(400).json({
-          status: 'err', message: 'Произошла ошибка: ' + e.message
-        });
+      })
+    .catch(e => {
+      res.status(400).json({
+        status: 'err', message: 'Произошла ошибка: ' + e.message
       });
+    });
 }
